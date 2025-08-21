@@ -1,7 +1,7 @@
 # Body Analysis Application Setup
 
 ## Overview
-This application now provides comprehensive body analysis including body type, shape, health assessment, and personalized recommendations
+This application provides comprehensive body analysis including body type, shape, health assessment, and personalized recommendations
 
 
 ### User Input Collection
