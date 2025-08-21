@@ -24,7 +24,8 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
         <meta name="theme-color" content="#2563eb" />
         {/* Tailwind Play CDN - provides Tailwind utility classes at runtime without PostCSS */}
-        <script src="https://cdn.tailwindcss.com"></script>
+        
+        <Script src="https://cdn.tailwindcss.com" strategy="afterInteractive" />
       </head>
       <body className={inter.className}>
         <main className="min-h-screen">
