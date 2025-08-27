@@ -8,7 +8,7 @@ const NYCKEL_CLIENT_SECRET = process.env.NYCKEL_CLIENT_SECRET;
 const NYCKEL_API_KEY = process.env.NYCKEL_API_KEY;
 
 // MoonshotAI configuration
-const MOONSHOT_API_URL = 'https://api.moonshot.cn/v1/chat/completions';
+const MOONSHOT_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 const MOONSHOT_API_KEY = process.env.MOONSHOT_API_KEY;
 
 interface UserInputs {
@@ -84,9 +84,11 @@ async function analyzeBodyFat(imageFile: File): Promise<{ bodyFatPercentage: num
   console.log('=== Analyzing body fat with Nyckel ===');
   
   try {
-    // Always use development fallback for now to avoid API issues
-    if (true) { // Force development mode for testing
-      console.log('Using development mock for body fat analysis');
+    // Use mock data in development or if API keys are not configured
+    const shouldUseMock = process.env.NODE_ENV === 'development' || (!NYCKEL_API_KEY && !NYCKEL_CLIENT_ID);
+    
+    if (shouldUseMock) {
+      console.log('Using development mock for body fat analysis (no API keys configured)');
       const mockBodyFat = parseFloat((12 + Math.random() * 18).toFixed(1));
       const mockConfidence = parseFloat((0.75 + Math.random() * 0.2).toFixed(2));
       
@@ -148,9 +150,11 @@ async function enhancedAnalysisWithMoonshot(
   console.log('=== Enhanced analysis with MoonshotAI ===');
   
   try {
-    // Always use fallback for now to avoid API issues
-    if (true) { // Force fallback mode for testing
-      console.log('Using development mock for MoonshotAI analysis');
+    // Use mock data in development or if API key is not configured
+    const shouldUseMock = process.env.NODE_ENV === 'development' || !MOONSHOT_API_KEY;
+    
+    if (shouldUseMock) {
+      console.log('Using development mock for MoonshotAI analysis (no API key configured)');
       
       // Simulate API delay
       await new Promise(resolve => setTimeout(resolve, 2000));

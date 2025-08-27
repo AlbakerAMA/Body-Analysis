@@ -1,5 +1,6 @@
 
 
+
 export default async function handler(req, res) {
   // Only allow POST requests
   if (req.method !== 'POST') {
@@ -156,7 +157,7 @@ Provide a meal that closely matches their request while maintaining nutritional 
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'anthropic/claude-3.5-sonnet', // You can change this to other models
+        model: 'openai/gpt-oss-20b:free', // You can change this to other models
         messages: [
           {
             role: 'system',

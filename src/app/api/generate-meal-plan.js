@@ -158,7 +158,7 @@ Ensure all meals are realistic, delicious, and aligned with the client's goals a
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'anthropic/claude-3.5-sonnet', // You can change this to other models
+        model: 'openai/gpt-oss-20b:free', // You can change this to other models
         messages: [
           {
             role: 'system',
